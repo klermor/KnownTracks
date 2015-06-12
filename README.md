@@ -4,7 +4,7 @@ A Known plugin that allows you to add GPX file viewer of content to your Known s
 
 ## Installation
 
-  * Drop the Tracks folder into the IdnoPlugins folder of your Known installation.
+  * Drop the Tracks folder (rename the folder in 'Tracks') into the IdnoPlugins folder of your Known installation.
   * Log into Known and click on Administration.
   * Click "enable" next to tracks.
   
