@@ -7,6 +7,9 @@ A Known plugin that allows you to add GPX file viewer of content to your Known s
   * Drop the Tracks folder (rename the folder in 'Tracks') into the IdnoPlugins folder of your Known installation.
   * Log into Known and click on Administration.
   * Click "enable" next to tracks.
+
+## demo
+![leaflet-gpx-demo](https://raw.githubusercontent.com/klermor/KnownTracks/master/external/leaflet-gpx/leaflet-gpx-demo.png)
   
 ## Uses
 * [leaflet-gpx](https://github.com/mpetazzoni/leaflet-gpx) :  This plugin, based on the work of [Pavel Shramov](http://github.com/shramov) and his
