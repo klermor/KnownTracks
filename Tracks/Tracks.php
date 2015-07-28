@@ -124,12 +124,13 @@ namespace IdnoPlugins\Tracks {
             }
 
             switch ($mapdata) {
-//                case 'mapquest':
-//                    $map = "L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png', {
-//          attribution: 'Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a>. Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>'
-//        }).addTo(map);";
-//
-//                    break;
+                case 'mapquest':
+                    $map = "L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
+                        subdomains:\"1234\",
+          attribution: 'Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a>. Tiles Courtesy of <a href=\"http://www.mapquest.com/\" target=\"_blank\">MapQuest</a>'
+        }).addTo(map);";
+
+                    break;
 
                 case 'thunderforest':
 

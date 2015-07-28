@@ -27,7 +27,7 @@ $('.advanced').click(function(){
 ?>
 <form action="<?=$vars['object']->getURL()?>" method="post" enctype="multipart/form-data">
     <div class="row">
-        <div class="span8 offset2 edit-pane">
+        <div class="col-md-8 col-md-offset-2 edit-pane">
             <h4>
             <?php
                 if (empty($vars['object']->_id)) {
@@ -43,25 +43,23 @@ $('.advanced').click(function(){
                 ?>
                     <label>
                         <span class="btn btn-primary btn-file">
-                            <i class="icon-play-circled"></i> <span id="tracks-filename">Upload tracks</span> <input type="file" name="tracks" id="tracks" class="span9" accept="application/gpx+xml" onchange="$('#tracks-filename').html($(this).val())" />
+                            <i class="fa fa-upload"></i> <span id="tracks-filename">Upload tracks</span> <input type="file" name="tracks" id="tracks" class="span9" accept="application/gpx+xml" onchange="$('#tracks-filename').html($(this).val())" />
                         </span>
                     </label>
                 <?php
                 }
                 ?>
             </p>
-            <p>
-                <label>
-                    Title<br />
-                    <input type="text" name="title" id="title" placeholder="Give it a title" value="<?=htmlspecialchars($vars['object']->title)?>" class="span8" />
-                </label>
-            </p>
-            <p>
-                <label>
-                    Description<br />
-                    <textarea name="body" id="description" placeholder="Add caption" class="span8 bodyInput"><?=htmlspecialchars($vars['object']->body)?></textarea>
-                </label>
-            </p>
+            <div class="content-form">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Give it a title" value="<?=htmlspecialchars($vars['object']->title)?>" class="form-control col-md-8" />
+                
+            </div>
+            <div class="content-form">
+                <label for="description">Description</label>
+                    <textarea name="body" id="description" placeholder="Add caption" class="form-control col-md-8 bodyInput"><?=htmlspecialchars($vars['object']->body)?></textarea>
+                
+            </div>
             <?php
             if (empty($vars['object']->_id)) {
             ?>
@@ -75,7 +73,8 @@ $('.advanced').click(function(){
                         <?php
                             foreach ([
                                 'OpenStreetMap'=> 'osm',
-                                'Thunderforest Outdoors' => 'thunderforest'
+                                'Thunderforest Outdoors' => 'thunderforest',
+                                'MapQuest'=> 'mapquest'
                                      ] as $field => $value) {
                                 ?>
                                 <option
