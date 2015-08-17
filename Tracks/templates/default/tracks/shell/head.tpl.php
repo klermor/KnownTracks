@@ -19,6 +19,10 @@ if (empty($height)){
     $height = '300px';
 }
 ?> 
+<link rel="stylesheet" href="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-elevation/leaflet.elevation-0.0.4.css" />
+<script src="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-elevation/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-elevation/leaflet.elevation-0.0.4.min.js"></script>
+
 <script type="text/javascript" src="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-gpx/gpx.js"></script>
 <style type="text/css">
       .gpx { border: 5px #aaa solid; border-radius: 5px;
