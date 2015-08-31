@@ -1,3 +1,8 @@
+#0.2.2 (2015-08-31)
+
+## Access
+fixed: 'Post Privacy Settings don't change on update' [#4](https://github.com/klermor/KnownTracks/issues/4)
+
 #0.2.1 (2015-07-28)
 
 ## Features

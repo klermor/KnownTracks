@@ -46,12 +46,13 @@ namespace IdnoPlugins\Tracks {
                 }
             }
 
-            $this->title = \Idno\Core\site()->currentPage()->getInput('title');
-            $this->body = \Idno\Core\site()->currentPage()->getInput('body');
-            $this->tags = \Idno\Core\site()->currentPage()->getInput('tags');
+            $this->title    = \Idno\Core\site()->currentPage()->getInput('title');
+            $this->body     = \Idno\Core\site()->currentPage()->getInput('body');
+            $this->tags     = \Idno\Core\site()->currentPage()->getInput('tags');
+            $this->access   = \Idno\Core\site()->currentPage()->getInput('access');
+            $this->mapdata  = \Idno\Core\site()->currentPage()->getInput('mapdata');
 
-            $this->mapdata = \Idno\Core\site()->currentPage()->getInput('mapdata');
-            $this->setAccess('PUBLIC');
+            $this->setAccess($this->access);
 
             if ($time = \Idno\Core\site()->currentPage()->getInput('created')) {
                 if ($time = strtotime($time)) {
