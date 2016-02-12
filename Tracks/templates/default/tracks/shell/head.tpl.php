@@ -1,29 +1,29 @@
 <?php
-if (!\Idno\Core\site()->plugins()->get('Checkin')){
-//if (!in_array('Checkin', \Idno\Core\site()->config->config['plugins'])){
+if (!\Idno\Core\Idno::site()->plugins()->get('Checkin')){
+
 ?>
-<link rel="stylesheet" href="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet/leaflet.css"/>
+<link rel="stylesheet" href="<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet/leaflet.css"/>
 <!--[if lte IE 8]>
-<link rel="stylesheet" href="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet/leaflet.ie.css"/>
+<link rel="stylesheet" href="<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet/leaflet.ie.css"/>
 <![endif]-->
-<script type="text/javascript" src="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet/leaflet.js"></script>
+<script type="text/javascript" src="<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet/leaflet.js"></script>
 <?php
 } 
 
-$weight = \Idno\Core\site()->config()->tracks['weight'];
+$weight = \Idno\Core\Idno::site()->config()->tracks['weight'];
 if (empty($weight)){
     $weight = '98%';
 }
-$height = \Idno\Core\site()->config()->tracks['height'];
+$height = \Idno\Core\Idno::site()->config()->tracks['height'];
 if (empty($height)){
     $height = '300px';
 }
 ?> 
-<link rel="stylesheet" href="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-elevation/leaflet.elevation-0.0.4.css" />
-<script src="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-elevation/d3.v3.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-elevation/leaflet.elevation-0.0.4.min.js"></script>
+<link rel="stylesheet" href="<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-elevation/leaflet.elevation-0.0.4.css" />
+<script src="<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-elevation/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-elevation/leaflet.elevation-0.0.4.min.js"></script>
 
-<script type="text/javascript" src="<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-gpx/gpx.js"></script>
+<script type="text/javascript" src="<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-gpx/gpx.js"></script>
 <style type="text/css">
       .gpx { border: 5px #aaa solid; border-radius: 5px;
         box-shadow: 0 0 3px 3px #ccc;

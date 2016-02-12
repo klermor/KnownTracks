@@ -1,5 +1,5 @@
 <?php
-$mapdata   = \Idno\Core\site()->config()->tracks['mapdata'];
+$mapdata   = \Idno\Core\Idno::site()->config()->tracks['mapdata'];
 $mapdataobj = $vars['object']->mapdata;
 
 if (empty($mapdataobj)){
@@ -90,9 +90,9 @@ $('.advanced').click(function(){
 
             <?=$this->draw('entity/tags/input');?>
             <?php if (empty($vars['object']->_id)) echo $this->drawSyndication('tracks'); ?>
-            <?php if (empty($vars['object']->_id)) { ?><input type="hidden" name="forward-to" value="<?= \Idno\Core\site()->config()->getDisplayURL() . 'content/all/'; ?>" /><?php } ?>
+            <?php if (empty($vars['object']->_id)) { ?><input type="hidden" name="forward-to" value="<?= \Idno\Core\Idno::site()->config()->getDisplayURL() . 'content/all/'; ?>" /><?php } ?>
             <p class="button-bar ">
-                <?= \Idno\Core\site()->actions()->signForm('/tracks/edit') ?>
+                <?= \Idno\Core\Idno::site()->actions()->signForm('/tracks/edit') ?>
                 <input type="button" class="btn btn-cancel" value="Cancel" onclick="hideContentCreateForm();" />
                 <input type="submit" class="btn btn-primary" value="Publish" />
                 <?= $this->draw('content/access'); ?>

@@ -1,13 +1,13 @@
 <?php
-$mapdata = \Idno\Core\site()->config()->tracks['mapdata'];
+$mapdata = \Idno\Core\Idno::site()->config()->tracks['mapdata'];
 if (empty($mapdata)) {
     $mapdata = 'osm';
 }
-$weight = \Idno\Core\site()->config()->tracks['weight'];
+$weight = \Idno\Core\Idno::site()->config()->tracks['weight'];
 if (empty($weight)) {
     $weight = '98%';
 }
-$height = \Idno\Core\site()->config()->tracks['height'];
+$height = \Idno\Core\Idno::site()->config()->tracks['height'];
 if (empty($height)) {
     $height = '300px';
 }
@@ -26,7 +26,7 @@ if (empty($height)) {
                 </div>-->
     </div>
     <div class="col-md-10 col-md-offset-1">
-        <form action="<?= \Idno\Core\site()->config()->getDisplayURL() ?>admin/tracks" class="form-horizontal" method="post">
+        <form action="<?= \Idno\Core\Idno::site()->config()->getDisplayURL() ?>admin/tracks" class="form-horizontal" method="post">
 
             <div class="control-group">
 
@@ -39,7 +39,7 @@ if (empty($height)) {
                         <div class="config-toggle col-md-4">
                             <input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Yes" data-off="No"
                                    name="metric"
-                                   value="true" <?php if (\Idno\Core\site()->config()->tracks['metric'] == true) echo 'checked'; ?>>
+                                   value="true" <?php if (\Idno\Core\Idno::site()->config()->tracks['metric'] == true) echo 'checked'; ?>>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@ if (empty($height)) {
                 </div>
             </div>
 
-            <?= \Idno\Core\site()->actions()->signForm('/admin/tracks') ?>
+            <?= \Idno\Core\Idno::site()->actions()->signForm('/admin/tracks') ?>
         </form>
     </div>
 

@@ -2,7 +2,7 @@
 
 $object = $vars['object'];
 
-$metric = \Idno\Core\site()->config()->tracks['metric'];
+$metric = \Idno\Core\Idno::site()->config()->tracks['metric'];
 if ($metric){
     $dist = 'km';
     $ele = 'm';
@@ -11,7 +11,7 @@ if ($metric){
     $ele = 'ft';
 }
 
-if (\Idno\Core\site()->currentPage()->isPermalink()) {
+if (\Idno\Core\Idno::site()->currentPage()->isPermalink()) {
     $rel = 'rel="in-reply-to"';
 } else {
     $rel = '';
@@ -90,9 +90,9 @@ if ($attachments = $object->getAttachments()) {
         var g = new L.GPX(url, {
           async: true,
           marker_options: {
-            startIconUrl: '<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-gpx/pin-icon-start.png',
-            endIconUrl:   '<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-gpx/pin-icon-end.png',
-            shadowUrl:    '<?php echo \Idno\Core\site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-gpx/pin-shadow.png',
+            startIconUrl: '<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-gpx/pin-icon-start.png',
+            endIconUrl:   '<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-gpx/pin-icon-end.png',
+            shadowUrl:    '<?php echo \Idno\Core\Idno::site()->config()->getDisplayURL() ?>IdnoPlugins/Tracks/external/leaflet-gpx/pin-shadow.png',
             },
         });
         g.on('loaded', function(e) {

@@ -14,7 +14,7 @@ namespace IdnoPlugins\Tracks\Pages {
         function getContent() {
             
             $this->adminGatekeeper(); // Admins only
-            $t = \Idno\Core\site()->template();
+            $t = \Idno\Core\Idno::site()->template();
             $body = $t->draw('admin/tracks');
             $t->__(array('title' => 'Tracks settings', 'body' => $body))->drawPage();
         }
@@ -28,15 +28,15 @@ namespace IdnoPlugins\Tracks\Pages {
             $weight = $this->getInput('weight');
             $height = $this->getInput('height');
 
-            \Idno\Core\site()->config->config['tracks'] = array(
+            \Idno\Core\Idno::site()->config->config['tracks'] = array(
                 'metric'=>$metric,
                 'mapdata' => $mapdata,
                 'weight' => $weight,
                 'height' => $height
             );
-            \Idno\Core\site()->config()->save();
-            \Idno\Core\site()->session()->addMessage('Your Tracks settings were saved.');
-            $this->forward(\Idno\Core\site()->config()->getDisplayURL() . 'admin/tracks/');
+            \Idno\Core\Idno::site()->config()->save();
+            \Idno\Core\Idno::site()->session()->addMessage('Your Tracks settings were saved.');
+            $this->forward(\Idno\Core\Idno::site()->config()->getDisplayURL() . 'admin/tracks/');
         }
 
     }

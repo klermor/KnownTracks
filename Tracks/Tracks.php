@@ -41,20 +41,20 @@ namespace IdnoPlugins\Tracks {
             }
 
             if ($new) {
-                if (!\Idno\Core\site()->triggerEvent("file/upload", [], true)) {
+                if (!\Idno\Core\Idno::site()->triggerEvent("file/upload", [], true)) {
                     return false;
                 }
             }
 
-            $this->title    = \Idno\Core\site()->currentPage()->getInput('title');
-            $this->body     = \Idno\Core\site()->currentPage()->getInput('body');
-            $this->tags     = \Idno\Core\site()->currentPage()->getInput('tags');
-            $this->access   = \Idno\Core\site()->currentPage()->getInput('access');
-            $this->mapdata  = \Idno\Core\site()->currentPage()->getInput('mapdata');
+            $this->title    = \Idno\Core\Idno::site()->currentPage()->getInput('title');
+            $this->body     = \Idno\Core\Idno::site()->currentPage()->getInput('body');
+            $this->tags     = \Idno\Core\Idno::site()->currentPage()->getInput('tags');
+            $this->access   = \Idno\Core\Idno::site()->currentPage()->getInput('access');
+            $this->mapdata  = \Idno\Core\Idno::site()->currentPage()->getInput('mapdata');
 
             $this->setAccess($this->access);
 
-            if ($time = \Idno\Core\site()->currentPage()->getInput('created')) {
+            if ($time = \Idno\Core\Idno::site()->currentPage()->getInput('created')) {
                 if ($time = strtotime($time)) {
                     $this->created = $time;
                 }
@@ -86,13 +86,13 @@ namespace IdnoPlugins\Tracks {
                             $this->attachFile($tracks);
                             $ok = true;
                         } else {
-                            \Idno\Core\site()->session()->addErrorMessage('Tracks wasn\'t attached.');
+                            \Idno\Core\Idno::site()->session()->addErrorMessage('Tracks wasn\'t attached.');
                         }
                     } else {
-                        \Idno\Core\site()->session()->addErrorMessage('This doesn\'t seem to be a track file .. ' . $_FILES['tracks']['type']);
+                        \Idno\Core\Idno::site()->session()->addErrorMessage('This doesn\'t seem to be a track file .. ' . $_FILES['tracks']['type']);
                     }
                 } else {
-                    \Idno\Core\site()->session()->addErrorMessage('We couldn\'t access your track. Please try again.');
+                    \Idno\Core\Idno::site()->session()->addErrorMessage('We couldn\'t access your track. Please try again.');
 
                     return false;
                 }
@@ -103,14 +103,18 @@ namespace IdnoPlugins\Tracks {
                 return false;
             }
 
-            if ($this->save($new)) {
-                \Idno\Core\Webmention::pingMentions($this->getURL(), \Idno\Core\site()->template()->parseURLs($this->getTitle() . ' ' . $this->getDescription()));
+	if ($this->publish($new)) {
 
-                return true;
-            } else {
-                return false;
+                    if ($this->getAccess() == 'PUBLIC') {
+                        \Idno\Core\Webmention::pingMentions($this->getURL(), \Idno\Core\Idno::site()->template()->parseURLs($this->getTitle() . ' ' . $this->getDescription()));
+                    }
+
+                    return true;
+                } else {
+                    return false;
+                }
+
             }
-        }
 
         /**
          * Get Leaflet Map data
@@ -121,7 +125,7 @@ namespace IdnoPlugins\Tracks {
         function getLMapdata($mapdata) {
 
             if (empty($mapdata)) {
-                $mapdata = \Idno\Core\site()->config()->tracks['mapdata'];
+                $mapdata = \Idno\Core\Idno::site()->config()->tracks['mapdata'];
             }
 
             switch ($mapdata) {

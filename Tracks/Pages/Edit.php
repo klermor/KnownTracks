@@ -15,7 +15,11 @@
                     $object = new \IdnoPlugins\Tracks\Tracks();
                 }
 
-                $t = \Idno\Core\site()->template();
+ 		if ($owner = $object->getOwner()) {
+                    $this->setOwner($owner);
+                }
+
+                $t = \Idno\Core\Idno::site()->template();
                 $body = $t->__(array(
                     'object' => $object
                 ))->draw('entity/Tracks/edit');
