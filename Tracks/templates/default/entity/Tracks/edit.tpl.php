@@ -89,7 +89,7 @@ $('.advanced').click(function(){
             </p>
 
             <?=$this->draw('entity/tags/input');?>
-            <?php if (empty($vars['object']->_id)) echo $this->drawSyndication('tracks'); ?>
+            <?php echo $this->drawSyndication('tracks', $vars['object']->getPosseLinks()); ?>
             <?php if (empty($vars['object']->_id)) { ?><input type="hidden" name="forward-to" value="<?= \Idno\Core\Idno::site()->config()->getDisplayURL() . 'content/all/'; ?>" /><?php } ?>
             <p class="button-bar ">
                 <?= \Idno\Core\Idno::site()->actions()->signForm('/tracks/edit') ?>
